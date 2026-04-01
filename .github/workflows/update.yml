@@ -9,15 +9,19 @@ jobs:
   update-news:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
+
       - name: Install dependencies
         run: pip install feedparser
+
       - name: Run news update script
         run: python scripts/update_news.py
+
       - name: Commit and push changes
         run: |
           git config --global user.name 'Epigone15'
